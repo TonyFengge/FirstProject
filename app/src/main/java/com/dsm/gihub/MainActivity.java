@@ -2,8 +2,10 @@ package com.dsm.gihub;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +19,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        TextView textView = (TextView) findViewById(R.id.tv_content);
+        final TextView textView = (TextView) findViewById(R.id.tv_content);
         textView.setText("This is a branch");
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Hello, Github", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
