@@ -1,17 +1,32 @@
 package com.dsm.gihub;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);  // 去除标题栏
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+
+        initViews();
+    }
+
+    private void initViews() {
+        final TextView textView = (TextView) findViewById(R.id.tv_content);
+        textView.setText("This is a branch");
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Hello, Github", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
